@@ -1,6 +1,5 @@
 # Functional Programming
-Based on https://www.youtube.com/watch?v=XvLMO2wE3OQ&list=WL&index=4&t=1297s
-
+Based on https://www.youtube.com/watch?v=XvLMO2wE3OQ
 ### First Class Functions
 
 ```jsx
