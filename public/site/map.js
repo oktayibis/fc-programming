@@ -32,10 +32,16 @@ const buildPerson = (person, index) => compose(
     addClass('p-3'))(createEl('div'));
 
 const view = (state) => {
-    const el = compose(addClass('container'))(createEl('div'));
-    state.map(buildPerson)
-    .forEach(person => append(person, el));
-    return el
+    const el = compose(addClass('container'), addClass('mb-4'))(createEl('div'));
+    
+    return state.map(buildPerson)
+    .reduce(
+        (acc, curr) => {
+            append(curr)(el);
+            return el;
+        }, el
+    )
+
 }
 
 
@@ -45,3 +51,6 @@ const app = (state, output) => {
 
 
 app(Object.freeze([...simpleNames]), getEl('message-list'));
+
+app(Object.freeze([...simpleNames].filter(person => person.age < 25)), getEl('filter'));
+
